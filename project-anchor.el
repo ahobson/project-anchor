@@ -53,8 +53,9 @@ when one of the hooks returns true.  Return nil otherwise."
 
 (defun project-anchor-find-with-mark (dir)
   "Does dir exist in a dired buffer with a mark. Returns dir if true, nil otherwise."
-  (find (expand-file-name dir) (apply #'append
-                     (remove-if 'null (mapcar 'project-anchor-get-buffer-marks (buffer-list))))
+  (find (directory-file-name (expand-file-name dir))
+        (apply #'append
+               (remove-if 'null (mapcar 'project-anchor-get-buffer-marks (buffer-list))))
         :test 'equal))
 
 (defun project-anchor-get-buffer-marks (buffer)
