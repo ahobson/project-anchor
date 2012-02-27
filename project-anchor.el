@@ -16,6 +16,8 @@
 ;; A framework for defining a project anchor that can be used by other
 ;; systems for searching files, providing buffer completion, etc.
 
+;; use some handle CL functions
+(require 'cl)
 
 (defvar project-anchor-find-hook nil
   "List of functions to be called to determine if a directory is a project anchor.")
